@@ -50,8 +50,8 @@ class AppController extends Controller
                 'action' => 'index'
             ],
             'logoutRedirect' => [
-                'controller' => 'Articles',
-                'action' => 'index',
+                'controller' => 'Users',
+                'action' => 'login',
                 'home'
             ]
         ]);
@@ -77,7 +77,8 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display']);
+        //$this->Auth->allow(['index', 'view', 'display']);
+        $this->Auth->allow(['login']);
         $this->set('logged_user', $this->Auth->user());
     }
     /**
